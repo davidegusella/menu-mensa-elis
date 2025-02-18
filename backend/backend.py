@@ -11,8 +11,10 @@ import uvicorn
 app = FastAPI()
 
 # Parole chiave per identificare lattosio e glutine
-ingredienti_lattosio = ["latte", "burro", "formaggio", "yogurt", "panna", "mozzarella", "ricotta", "besciamella", "parmigiano", "dado"]
-ingredienti_glutine = ["farina", "pane", "pasta", "pizza", "biscotti", "grano", "orzo", "segale", "malto", "dado"]
+ingredienti_lattosio = ["latte", "burro", "formaggio", "yogurt", "panna", "mozzarella",
+                        "ricotta", "besciamella", "parmigiano", "dado"]
+ingredienti_glutine = ["farina", "pane", "pasta", "pizza", "biscotti", "grano", "orzo",
+                       "segale", "malto", "dado"]
 
 # Funzione per estrarre il menù
 def estrai_menu():
@@ -40,7 +42,8 @@ def estrai_menu():
 
             # Controllo se ci sono ingredienti disponibili
             if i < len(ingredienti_tags):
-                dettagli = ingredienti_tags[i].get_text().strip().replace("\n", " ").replace("  ", " ")
+                dettagli = (ingredienti_tags[i].get_text().strip().replace("\n", " ")
+                            .replace("  ", " "))
             else:
                 dettagli = "Ingredienti non disponibili"
 
@@ -66,7 +69,10 @@ def estrai_menu():
 
 @app.get("/menu")
 def get_menu():
-    return estrai_menu()
+    menu =  estrai_menu()
+    print (menu)
+    return menu
+
 
 @app.get("/")
 def home():

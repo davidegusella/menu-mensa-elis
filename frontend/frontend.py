@@ -3,7 +3,7 @@ import requests
 
 # URL del backend FastAPI
 #BACKEND_URL = "http://127.0.0.1:5000/menu"
-BACKEND_URL = "https://menu-mensa-elis.onrender.com/"
+BACKEND_URL = "https://menu-mensa-elis.onrender.com/menu"
 
 # Funzione per ottenere il menù dal back-end
 def ottieni_menu():
